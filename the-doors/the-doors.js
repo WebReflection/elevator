@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function close() {
     doors.close();
     // easter egg
-    if (Math.random() < .2) {
+    if (Math.random() < .1) {
       setTimeout(detect, 500);
     }
   }
