@@ -1,0 +1,60 @@
+html, body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  text-align: center;
+}
+
+body > * {
+  position: absolute;
+}
+
+.sensor {
+  top: 0;
+  left: 50%;
+  width: 20vh;
+  height: 100vh;
+  margin-left: -10vh;
+}
+
+progress {
+  top: 4px;
+  left: 50%;
+  width: 80px;
+  height: 8px;
+  margin-left: -40px;
+}
+
+.panel {
+  top: 30%;
+  right: 25%;
+}
+
+.panel button {
+  display: block;
+  margin: 50% auto;
+  font-size: 1.2em;
+  height: 2em;
+}
+
+.left, .right {
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #333;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
