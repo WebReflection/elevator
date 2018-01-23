@@ -1,6 +1,6 @@
-import {bind, wire} from 'https://unpkg.com/hyperhtml?module';
-import Doors from './component/Doors.js';
-import {leak} from './leakySensor.js';
+import {bind} from 'https://unpkg.com/hyperhtml?module';
+import Doors from '../component/Doors.js';
+import {leak} from '../hacks/leakySensor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function close() {
     doors.close();
-    if (Math.random() < .3) {
+    // easter egg
+    if (Math.random() < .2) {
       setTimeout(detect, 500);
     }
   }
