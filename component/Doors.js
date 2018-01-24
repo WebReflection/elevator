@@ -26,27 +26,20 @@ export default class Doors extends SimpleTarget {
   open() {
     const info = privates.get(this);
     if (info.status === Doors.OPENED) return;
-    info.sensor.activate();
+    // start moving doors outward
     info.motor.rotate(1);
   }
 
   close() {
     const info = privates.get(this);
     if (info.status === Doors.CLOSED) return;
+    // be sure nobody gets chopped while closing
     info.sensor.activate();
+    // start moving doors inward
     info.motor.rotate(-1);
   }
 
-  handleEvent(event) {
-    switch (event.type) {
-      case 'proximity':
-        this.open();
-        break;
-      case 'rotating':
-        this.onrotating(event);
-        break;
-    }
-  }
+  onproximity() { this.open(); }
 
   onrotating(event) {
     const info = privates.get(this);
@@ -61,9 +54,12 @@ export default class Doors extends SimpleTarget {
     switch (info.status) {
       case Doors.CLOSED:
       case Doors.OPENED:
+        // sensor not needed anymore
         info.sensor.deactivate();
+        // and the motor can stop
         info.motor.stop();
-        this.signal('change');
+        // notify the doors status changed
+        this.signal('changed');
         break;
     }
   }

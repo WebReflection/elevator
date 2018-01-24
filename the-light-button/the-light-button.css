@@ -1,0 +1,36 @@
+html, body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #333;
+}
+
+.light-button {
+  padding: 0;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  outline: none;
+  display: block;
+  font-size: 1.2em;
+  width: 2.4em;
+  height: 2.4em;
+  margin-top: -1.2em;
+  margin-left: -1.2em;
+  border-radius: 1em;
+  border: 2px solid #000;
+  color: #555;
+  background-color: #fff;
+}
+
+.light-button.on {
+  color: #000;
+  background-color: #ffa;
+}

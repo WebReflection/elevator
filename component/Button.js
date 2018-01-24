@@ -11,7 +11,5 @@ export default class Button extends SimpleTarget {
   // while in the Internet of Things world you'll have
   // a physical way to press such button, we need a
   // synthetic alternative to simulate actual pressing.
-  press() {
-    this.signal('press');
-  }
+  press() { this.signal('press'); }
 }

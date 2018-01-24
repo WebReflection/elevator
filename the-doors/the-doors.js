@@ -10,6 +10,8 @@ document.addEventListener(
     const doors = new Doors;
     // (with a leaky sensor !!!)
     const sensor = leak;
+    // that communicates when it detects movements
+    sensor.on('proximity', () => console.log('movement detected'));
 
     // doors are controlled by two buttons
     const opener = new Button('⇤⇥');
@@ -22,7 +24,7 @@ document.addEventListener(
 
     // whenever doors finish opening or closing
     // inform the used about the status
-    doors.on('change', () => {
+    doors.on('changed', () => {
       switch (doors.status) {
         case Doors.OPENED:
         console.log('doors opened');
@@ -64,13 +66,15 @@ document.addEventListener(
       //  will re-open again by themselves
       //  through the leaky sensor
       if (Math.random() < .1) {
-        setTimeout(detect, 500);
+        setTimeout(() => {
+          console.log('a fly passed by');
+          detect();
+        }, 500);
       }
     }
 
     // simulating the (leaky) proximity sensor detection
     function detect() {
-      console.log('movement detected');
       sensor.detect();
     }
   },
