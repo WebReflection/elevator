@@ -1,6 +1,6 @@
-import HyperTarget from '../utils/HyperTarget.js';
+import SimpleTarget from '../utils/SimpleTarget.js';
 
-export default class Motor extends HyperTarget {
+export default class Motor extends SimpleTarget {
   constructor() {
     super();
     this.rotating = 0;

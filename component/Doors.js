@@ -1,11 +1,11 @@
-import HyperTarget from '../utils/HyperTarget.js';
+import SimpleTarget from '../utils/SimpleTarget.js';
 
 import Motor from './Motor.js';
 import ProximitySensor from './ProximitySensor.js';
 
 const privates = new WeakMap;
 
-export default class Doors extends HyperTarget {
+export default class Doors extends SimpleTarget {
 
   static get CLOSED() { return 0; }
   static get OPENED() { return 1; }

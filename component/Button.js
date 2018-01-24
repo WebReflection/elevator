@@ -1,8 +1,8 @@
-import HyperTarget from '../utils/HyperTarget.js';
+import SimpleTarget from '../utils/SimpleTarget.js';
 
 // the most basic Button ever does one thing and one thing only:
 // when you press it, it sends a signal that it's being pressed
-export default class Button extends HyperTarget {
+export default class Button extends SimpleTarget {
   constructor(symbol) {
     super();
     this.symbol = symbol;

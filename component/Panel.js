@@ -1,6 +1,6 @@
-import HyperTarget from '../utils/HyperTarget.js';
+import SimpleTarget from '../utils/SimpleTarget.js';
 
-export default class Panel extends HyperTarget {
+export default class Panel extends SimpleTarget {
   constructor(buttons) {
     super();
     this.queue = new Set;

@@ -1,6 +1,6 @@
-import HyperTarget from '../utils/HyperTarget.js';
+import SimpleTarget from '../utils/SimpleTarget.js';
 
-export default class ProximitySensor extends HyperTarget {
+export default class ProximitySensor extends SimpleTarget {
 
   constructor() { super().active = false; }
 
