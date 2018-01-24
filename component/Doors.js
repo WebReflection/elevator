@@ -63,7 +63,7 @@ export default class Doors extends EventTarget {
       case Doors.OPENED:
         info.sensor.deactivate();
         info.motor.stop();
-        this.dispatchEvent('change');
+        this.dispatchEvent(new Event('change'));
         break;
     }
   }

@@ -8,7 +8,7 @@ html, body {
 body {
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: #111;
   text-align: center;
 }
 
@@ -41,7 +41,16 @@ progress {
   display: block;
   margin: 50% auto;
   font-size: 1.2em;
-  height: 2em;
+  height: 2.4em;
+  border-radius: 1em;
+  border: 2px solid #000;
+  background-color: #fff;
+}
+
+.panel button:active,
+.panel button:focus {
+  outline: none;
+  background-color: #ffa;
 }
 
 .left, .right {
