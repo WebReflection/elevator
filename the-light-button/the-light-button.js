@@ -1,5 +1,5 @@
 import {bind} from 'https://unpkg.com/hyperhtml?module';
-import LightButton from '../component/LightButton.js';
+import LightButton from '../hardware/LightButton.js';
 
 document.addEventListener(
   'DOMContentLoaded',

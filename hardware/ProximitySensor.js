@@ -4,13 +4,15 @@ import SimpleTarget from '../utils/SimpleTarget.js';
 // whenever someone, or something, is around
 export default class ProximitySensor extends SimpleTarget {
 
+  // a sensor can be either active or inactive (default)
   constructor() { super().active = false; }
 
-  // a sensor can be either active or inactive
   activate() { this.active = true; }
   deactivate() { this.active = false; }
 
-  // and once an object gets closer, it signals its proximity
+  // once an object gets closer, the sensor signals its proximity
+  // in the real world, a proximity sensor might send more data
+  // like, as example, how far is the detected object.
   detect() { if (this.active) this.signal('proximity'); }
 
 }

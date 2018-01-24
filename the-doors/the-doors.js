@@ -1,7 +1,7 @@
 import {bind} from 'https://unpkg.com/hyperhtml?module';
-import Doors from '../component/Doors.js';
+import Doors from '../hardware/Doors.js';
 import {leak} from '../hacks/leakySensor.js';
-import Button from '../component/Button.js';
+import Button from '../hardware/Button.js';
 
 document.addEventListener(
   'DOMContentLoaded',

@@ -17,7 +17,7 @@ export default class SimpleTarget extends EventTarget{
   handleEvent(event) { this[`on${event.type}`](event); }
 
   // and a mechanical "signal" to notify any hardware
-  // that is listening to the current component.
+  // that is listening to the current instance.
   signal(signal, detail) {
     this.dispatchEvent(new CustomEvent(signal, {detail}));
   }
