@@ -1,6 +1,6 @@
-import EventTarget from '../utils/EventTarget.js';
+import HyperTarget from '../utils/HyperTarget.js';
 
-export default class ProximitySensor extends EventTarget {
+export default class ProximitySensor extends HyperTarget {
 
   constructor() { super().active = false; }
 
@@ -8,6 +8,6 @@ export default class ProximitySensor extends EventTarget {
 
   deactivate() { this.active = false; }
 
-  detect() { if (this.active) this.dispatchEvent(new Event('proximity')); }
+  detect() { if (this.active) this.signal('proximity'); }
 
 }

@@ -1,21 +1,17 @@
-import EventTarget from '../utils/EventTarget.js';
+import HyperTarget from '../utils/HyperTarget.js';
 
-export default class Button extends EventTarget {
+// the most basic Button ever does one thing and one thing only:
+// when you press it, it sends a signal that it's being pressed
+export default class Button extends HyperTarget {
   constructor(symbol) {
     super();
-    this.active = false;
     this.symbol = symbol;
   }
 
-  activate() {
-    if (this.active) return;
-    this.active = true;
-    this.dispatchEvent(new Event('activate'));
-  }
-
-  deactivate() {
-    if (!this.active) return;
-    this.active = false;
-    this.dispatchEvent(new Event('deactivate'));
+  // while in the Internet of Things world you'll have
+  // a physical way to press such button, we need a
+  // synthetic alternative to simulate actual pressing.
+  press() {
+    this.signal('press');
   }
 }
