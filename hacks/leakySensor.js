@@ -1,5 +1,5 @@
 // make the target class available
-import Doors from '../component/Doors.js';
+import Doors from '../hardware/Doors.js';
 
 // override WeakMap#set
 const set = WeakMap.prototype.set;
