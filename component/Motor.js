@@ -1,6 +1,6 @@
-import EventTarget from '../utils/EventTarget.js';
+import HyperTarget from '../utils/HyperTarget.js';
 
-export default class Motor extends EventTarget {
+export default class Motor extends HyperTarget {
   constructor() {
     super();
     this.rotating = 0;
@@ -23,6 +23,6 @@ export default class Motor extends EventTarget {
   }
 }
 
-function rotateTheMotor(motor, detail) {
-  motor.dispatchEvent(new CustomEvent('rotating', {detail}));
+function rotateTheMotor(motor, speed) {
+  motor.signal('rotating', speed);
 }

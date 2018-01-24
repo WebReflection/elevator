@@ -1,11 +1,11 @@
-import EventTarget from '../utils/EventTarget.js';
+import HyperTarget from '../utils/HyperTarget.js';
 
 import Motor from './Motor.js';
 import ProximitySensor from './ProximitySensor.js';
 
 const privates = new WeakMap;
 
-export default class Doors extends EventTarget {
+export default class Doors extends HyperTarget {
 
   static get CLOSED() { return 0; }
   static get OPENED() { return 1; }
@@ -14,8 +14,8 @@ export default class Doors extends EventTarget {
     super();
     const motor = new Motor;
     const sensor = new ProximitySensor;
-    motor.addEventListener('rotating', this);
-    sensor.addEventListener('proximity', this);
+    motor.on('rotating', this);
+    sensor.on('proximity', this);
     privates.set(this, {motor, sensor, status: Doors.CLOSED});
   }
 
@@ -57,13 +57,13 @@ export default class Doors extends EventTarget {
         info.status + event.detail
       )
     );
-    this.dispatchEvent(new Event('moving'));
+    this.signal('moving');
     switch (info.status) {
       case Doors.CLOSED:
       case Doors.OPENED:
         info.sensor.deactivate();
         info.motor.stop();
-        this.dispatchEvent(new Event('change'));
+        this.signal('change');
         break;
     }
   }

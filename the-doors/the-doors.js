@@ -22,7 +22,7 @@ document.addEventListener(
 
     // whenever doors finish opening or closing
     // inform the used about the status
-    doors.addEventListener('change', () => {
+    doors.on('change', () => {
       switch (doors.status) {
         case Doors.OPENED:
         console.log('doors opened');
@@ -35,7 +35,7 @@ document.addEventListener(
 
     // while doors are opening or closing
     // update any visual indicator (i.e. progress)
-    doors.addEventListener('moving', update);
+    doors.on('moving', update);
     update();
 
     // to update the view, simply use hyperHTML.bind(el)

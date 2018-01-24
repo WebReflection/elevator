@@ -1,6 +1,6 @@
-import EventTarget from '../utils/EventTarget.js';
+import HyperTarget from '../utils/HyperTarget.js';
 
-export default class Panel extends EventTarget {
+export default class Panel extends HyperTarget {
   constructor(buttons) {
     super();
     this.queue = new Set;
@@ -9,7 +9,7 @@ export default class Panel extends EventTarget {
 
   handleEvent(event) {
     this[`on${event.type}`](event);
-    this.dispatchEvent(new Event('change'));
+    this.signal(new Event('change'));
   }
 
   onactivate(event) {
@@ -22,7 +22,7 @@ export default class Panel extends EventTarget {
 }
 
 function asButtonListener(button) {
-  button.addEventListener('activate', this);
-  button.addEventListener('deactivate', this);
+  button.on('activate', this);
+  button.on('deactivate', this);
   return button;
 }
