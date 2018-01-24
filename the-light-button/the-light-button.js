@@ -15,13 +15,13 @@ document.addEventListener(
       bind(document.body)`
       <button
         class=${'light-button ' + lightClass}
-        onclick=${switchLight}
+        onclick=${toggleLight}
       >${button.symbol}</button>`;
     }
 
     // this function is in charge of switching
     // the button light on or off
-    function switchLight() {
+    function toggleLight() {
       switch (button.state) {
         case LightButton.ON:
           button.switch(LightButton.OFF);
