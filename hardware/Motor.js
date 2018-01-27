@@ -10,11 +10,12 @@ export default class Motor extends SimpleTarget {
     // integers different from zero
     this.rotating = 0;
     // every motor has also different voltage,
-    // power, or speed, which is the most relevant in here.
+    // power, or speed, which is in this demo
+    // the most important for this motor to work.
     this.speed = 0.01;
   }
 
-  // rotate is an publically exposed feature/API of the motor
+  // rotate is a public feature/API of the motor
   rotate(direction) {
     // it stops if it was moving already
     if (this.rotating) this.stop();

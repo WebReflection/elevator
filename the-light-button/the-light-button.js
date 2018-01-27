@@ -5,10 +5,14 @@ document.addEventListener(
   'DOMContentLoaded',
   () => {
 
+    // there is one button
     const button = new LightButton('G');
 
+    // whenever it switches on or off, it sends a signal
     button.on('lighton', () => update('on'));
     button.on('lightoff', () => update('off'));
+
+    // by default, the button has the light switched off
     update('off');
 
     function update(lightClass) {
