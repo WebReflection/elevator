@@ -27,7 +27,7 @@ document.addEventListener(
     doors.on('changed', () => {
       switch (doors.status) {
         case Doors.OPENED:
-        console.log('doors opened');
+          console.log('doors opened');
           break;
         case Doors.CLOSED:
           console.log('doors closed');

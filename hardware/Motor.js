@@ -1,4 +1,4 @@
-import SimpleTarget from '../utils/SimpleTarget.js';
+import SimpleTarget from '../software/SimpleTarget.js';
 
 // an elevator doors motor does literally 2 things:
 // it opens doors or it closes them.

@@ -1,4 +1,4 @@
-import SimpleTarget from '../utils/SimpleTarget.js';
+import SimpleTarget from '../software/SimpleTarget.js';
 
 // the most basic Button ever does one thing and one thing only:
 // when you press it, it sends a signal that it's being pressed

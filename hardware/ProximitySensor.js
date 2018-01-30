@@ -1,4 +1,4 @@
-import SimpleTarget from '../utils/SimpleTarget.js';
+import SimpleTarget from '../software/SimpleTarget.js';
 
 // when active, a proximity sensor is capable of signaling
 // whenever someone, or something, is around

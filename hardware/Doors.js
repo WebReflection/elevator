@@ -1,4 +1,4 @@
-import SimpleTarget from '../utils/SimpleTarget.js';
+import SimpleTarget from '../software/SimpleTarget.js';
 
 // modern elevator doors have at least one motor
 import Motor from './Motor.js';
@@ -71,7 +71,7 @@ export default class Doors extends SimpleTarget {
     // signal to a visual panels or other hardware
     // that doors are moving
     this.signal('moving');
-    // and if staus is now opened or closed
+    // and if status is now opened or closed
     switch (info.status) {
       case Doors.CLOSED:
       case Doors.OPENED:
