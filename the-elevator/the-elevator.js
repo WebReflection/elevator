@@ -55,7 +55,7 @@ document.addEventListener(
       <div class="external">
         ${panels.slice(1).map(createPanel)}
       </div>
-      <div class="elevator">
+      <div class="elevator" data-floor="${Action.asSymbol(0)}">
         <div class="left" />
         <div class="right" />
       </div>
@@ -67,11 +67,17 @@ document.addEventListener(
     const elevatorUI = document.body.querySelector('.elevator');
 
     // setup the elevator movement
-    controller.on('elevator:moving', event => {
-      // event.detail.status goes from 0 (basement) to top floor (5 in this case)
-      const bottom = innerHeight * event.detail.status / (panels.length - 1);
-      elevatorUI.style.bottom = `${bottom}px`;
-    });
+    controller
+      .on('elevator:moving', event => {
+        // event.detail.status goes from 0 (basement) to top building floor
+        const bottom = innerHeight * event.detail.status / (panels.length - 1);
+        elevatorUI.style.bottom = `${bottom}px`;
+      })
+      .on('elevator:changed', event => {
+        // update the internal panel with the current floor
+        elevatorUI.dataset.floor =
+          Action.asSymbol(event.currentTarget.state.floor);
+      });
 
     // setup doors movement
     setupDoors(controller, {
