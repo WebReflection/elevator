@@ -26,7 +26,7 @@ const proto = {
   },
   asSymbol(floor) {
     for (const key in this) {
-      if (this.asFloor(key) === floor) {
+      if (this.asFloor(this[key]) === floor) {
         return this[key];
       }
     }

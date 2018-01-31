@@ -29,8 +29,9 @@ export default class Elevator extends SimpleTarget {
   // simply reaches a new level
   reach(level) {
     const info = privates.get(this);
+    const rotation = level > info.level ? 1 : -1;
     info.level = level;
-    info.motor.rotate(level < 0 ? -1 : 1);
+    info.motor.rotate(rotation);
   }
 
   // while moving, calculate when it's time to stop.
@@ -38,8 +39,6 @@ export default class Elevator extends SimpleTarget {
   onrotating(event) {
     const info = privates.get(this);
     info.status += event.detail;
-    // just signal that it's moving
-    this.signal('moving');
     // and whenever it reached the previous or next floor
     if (
       (event.detail < 0 && info.status <= info.level) ||
@@ -48,9 +47,14 @@ export default class Elevator extends SimpleTarget {
       // stop the motor
       info.motor.stop();
       // reset status
-      info.status = 0;
-      // and signal the change
+      info.status = Math.round(info.status);
+      // signal last precise movement
+      this.signal('moving');
+      // and also signal the floor change
       this.signal('changed');
+    } else {
+      // just signal that it's moving
+      this.signal('moving');
     }
   }
 }

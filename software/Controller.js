@@ -142,7 +142,7 @@ export default class Controller extends SimpleTarget {
         case Action.CLOSE_DOORS:
           // just invoke it and let the rest
           // of the events flow
-          info.doors.open();
+          info.doors.close();
           break;
       }
     }
@@ -157,9 +157,8 @@ export default class Controller extends SimpleTarget {
         break;
       case Doors.CLOSED:
         if (info.queue.length) {
-          const level = info.queue[0] -
-                        Action.asFloor(info.state.floor.symbol);
-          if (level === 0) {
+          const level = info.queue[0];
+          if (level === Action.asFloor(info.state.floor.symbol)) {
             info.queue.shift();
             info.doors.open();
           } else {
