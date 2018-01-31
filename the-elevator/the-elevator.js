@@ -85,6 +85,9 @@ document.addEventListener(
       right: elevatorUI.querySelector('.right')
     });
 
+    // it's all setup 🎉 let's move to the ground floor
+    internalPanel.buttons[3].press();
+
     // define a button that reacts through the hardware
     // changing class per each light switch
     function createButton(button) {
