@@ -133,8 +133,10 @@ export default class Controller extends SimpleTarget {
           if (info.doors.status === Doors.OPENED) {
             // prepare for the next action, if any
             prepareNextAction(info);
-          } else {
-            // otherwise ask doors to open
+          }
+          // otherwise if the elevator is not moving
+          else if (!info.state.moving) {
+            // ask to open doors
             info.doors.open();
           }
           break;
