@@ -68,6 +68,7 @@ document.addEventListener(
 
     // setup the elevator movement
     controller.on('elevator:moving', event => {
+      // event.detail.status goes from 0 (basement) to top floor (5 in this case)
       const bottom = innerHeight * event.detail.status / (panels.length - 1);
       elevatorUI.style.bottom = `${bottom}px`;
     });
@@ -105,6 +106,7 @@ document.addEventListener(
     // setup doors, opening and closing together
     function setupDoors(controller, doors) {
       controller.on('doors:moving', event => {
+        // event.detail.status goes from 0 to 1, usable as percentage
         const position = -(doors.left.offsetWidth * event.detail.status);
         doors.left.style.left = `${position}px`;
         doors.right.style.right = `${position}px`;
