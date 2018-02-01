@@ -1,8 +1,8 @@
-import SimpleTarget from '../software/SimpleTarget.js';
+import SignalTarget from '../software/SignalTarget.js';
 
 // when active, a proximity sensor is capable of signaling
 // whenever someone, or something, is around
-export default class ProximitySensor extends SimpleTarget {
+export default class ProximitySensor extends SignalTarget {
 
   // a sensor can be either active or inactive (default)
   constructor() { super().active = false; }

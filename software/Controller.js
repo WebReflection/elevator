@@ -1,5 +1,5 @@
 import Action from './Action.js';
-import SimpleTarget from './SimpleTarget.js';
+import SignalTarget from './SignalTarget.js';
 
 import Doors from '../hardware/Doors.js';
 import LightButton from '../hardware/LightButton.js';
@@ -13,7 +13,7 @@ const {assign, freeze} = Object;
 
 // a controller is in charge of orchestrating
 // the elevator functionality as a whole.
-export default class Controller extends SimpleTarget {
+export default class Controller extends SignalTarget {
 
   constructor(elevator, doors, panels) {
     super();

@@ -1,4 +1,4 @@
-import SimpleTarget from '../software/SimpleTarget.js';
+import SignalTarget from '../software/SignalTarget.js';
 
 // modern elevator doors have at least one motor
 import Motor from './Motor.js';
@@ -8,7 +8,7 @@ import ProximitySensor from './ProximitySensor.js';
 // private properties are handled by this WeakMap
 const privates = new WeakMap;
 
-export default class Doors extends SimpleTarget {
+export default class Doors extends SignalTarget {
 
   // doors can be either closed or opened
   static get CLOSED() { return 0; }

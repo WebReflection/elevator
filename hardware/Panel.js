@@ -1,9 +1,9 @@
-import SimpleTarget from '../software/SimpleTarget.js';
+import SignalTarget from '../software/SignalTarget.js';
 
 // a panel is a convenient intermediate layer that could
 // group one or more buttons together and be mounted
 // either externally or internally the elevator
-export default class Panel extends SimpleTarget {
+export default class Panel extends SignalTarget {
 
   constructor(buttons) {
     super();

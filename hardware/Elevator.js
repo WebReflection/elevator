@@ -1,4 +1,4 @@
-import SimpleTarget from '../software/SimpleTarget.js';
+import SignalTarget from '../software/SignalTarget.js';
 
 // just like its doors, an elevator moves through a motor
 import BiggerMotor from './BiggerMotor.js';
@@ -6,7 +6,7 @@ import BiggerMotor from './BiggerMotor.js';
 // private properties are handled by this WeakMap
 const privates = new WeakMap;
 
-export default class Elevator extends SimpleTarget {
+export default class Elevator extends SignalTarget {
 
   constructor() {
     super();

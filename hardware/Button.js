@@ -1,8 +1,8 @@
-import SimpleTarget from '../software/SimpleTarget.js';
+import SignalTarget from '../software/SignalTarget.js';
 
 // the most basic Button ever does one thing and one thing only:
 // when you press it, it sends a signal that it's being pressed
-export default class Button extends SimpleTarget {
+export default class Button extends SignalTarget {
   constructor(symbol) {
     super();
     this.symbol = symbol;

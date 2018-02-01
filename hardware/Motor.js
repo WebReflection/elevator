@@ -1,8 +1,8 @@
-import SimpleTarget from '../software/SimpleTarget.js';
+import SignalTarget from '../software/SignalTarget.js';
 
 // an elevator doors motor does literally 2 things:
 // it opens doors or it closes them.
-export default class Motor extends SimpleTarget {
+export default class Motor extends SignalTarget {
   constructor() {
     super();
     // the rotating is used like a flag
