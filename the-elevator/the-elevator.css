@@ -72,6 +72,17 @@ body:before {
 
 }
 
+.elevator:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  height: 100vh;
+  top: -100vh;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  background: #222;
+}
 .elevator:before {
   position: absolute;
   display: block;
