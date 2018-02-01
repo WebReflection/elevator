@@ -4,7 +4,7 @@ import EventTarget from './EventTarget.js';
 // we also don't like to write new CustomEvent(type, {detail})
 // every single time, we can lightly wrap the EventTarget
 // making more easy to deal with.
-export default class SignalTarget extends EventTarget{
+export default class SignalTarget extends EventTarget {
 
   // a well known `obj.on(type, callback)` shortcut
   on(...args) {

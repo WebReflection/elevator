@@ -1,7 +1,7 @@
 A JavaScript Elevator
 =====================
 
-An introduction to programming for the Internet of Things through a metaphoric code explained through blog posts.
+An introduction to programming for the Internet of Things through a metaphoric code explained through [a blog posts](https://medium.com/@WebReflection/a-javascript-elevator-9b55e1d4acc8).
 
 ### Demos
 
