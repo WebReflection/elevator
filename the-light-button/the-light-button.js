@@ -1,4 +1,4 @@
-import {bind} from 'https://unpkg.com/hyperhtml?module';
+import {render, html} from 'https://unpkg.com/uhtml?module';
 import LightButton from '../hardware/LightButton.js';
 
 document.addEventListener(
@@ -16,11 +16,12 @@ document.addEventListener(
     update('off');
 
     function update(lightClass) {
-      bind(document.body)`
-      <button
-        class=${'light-button ' + lightClass}
-        onclick=${toggleLight}
-      >${button.symbol}</button>`;
+      render(document.body, html`
+        <button
+          class=${'light-button ' + lightClass}
+          onclick=${toggleLight}
+        >${button.symbol}</button>
+      `);
     }
 
     // this function is in charge of switching

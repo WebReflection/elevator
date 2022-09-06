@@ -1,4 +1,4 @@
-import {bind, wire} from 'https://unpkg.com/hyperhtml?module';
+import {render, html} from 'https://unpkg.com/uhtml?module';
 
 // software
 import Action from '../software/Action.js';
@@ -51,7 +51,7 @@ document.addEventListener(
     //  on the left, panels per each floor
     //  in the middle, the elevator
     //  on the right, the internal panel
-    bind(document.body)`
+    render(document.body, html`
       <div class="external">
         ${panels.slice(1).map(createPanel)}
       </div>
@@ -61,7 +61,8 @@ document.addEventListener(
       </div>
       <div class="internal">
         ${createPanel(panels[0])}
-      </div>`;
+      </div>
+    `);
 
     // let's setup the UI for demo purpose
     const elevatorUI = document.body.querySelector('.elevator');
@@ -92,13 +93,14 @@ document.addEventListener(
     // changing class per each light switch
     function createButton(button) {
       const press = () => button.press();
-      const update = lightClass => wire(button)`
+      const update = lightClass => html.for(button)`
         <button
           class=${'light-button ' + lightClass}
           onclick=${press}
         >
           ${button.symbol}
-        </button>`;
+        </button>
+      `;
       button.on('lighton', () => update('on'));
       button.on('lightoff', () => update('off'));
       return update('off');
@@ -106,10 +108,11 @@ document.addEventListener(
 
     // define a panel with a list of one or more buttons
     function createPanel(panel) {
-      return wire(panel)
-        `<div class="panel">${
+      return html.for(panel)`
+        <div class="panel">${
           panel.buttons.map(createButton)
-        }</div>`;
+        }</div>
+      `;
     }
 
     // setup doors, opening and closing together
@@ -121,7 +124,6 @@ document.addEventListener(
         doors.right.style.right = `${position}px`;
       });
     }
-
   },
 
   // setup on DOMContentLoaded only once

@@ -1,4 +1,4 @@
-import {bind} from 'https://unpkg.com/hyperhtml?module';
+import {render, html} from 'https://unpkg.com/uhtml?module';
 import Doors from '../hardware/Doors.js';
 import {leak} from '../hacks/leakySensor.js';
 import Button from '../hardware/Button.js';
@@ -40,17 +40,18 @@ document.addEventListener(
     doors.on('moving', update);
     update();
 
-    // to update the view, simply use hyperHTML.bind(el)
+    // to update the view, simply render into the body
     function update() {
-      bind(document.body)`
-      <div class=sensor onmouseover=${detect}/>
-      <div class=left style=${`margin-left:${-doors.status * 50}%`} />
-      <div class=right style=${`margin-right:${-doors.status * 50}%`} />
-      <progress value=${doors.status * 100} max=100 />
-      <div class=panel>
-        <button onclick=${pressOpener}>${opener.symbol}</button>
-        <button onclick=${pressCloser}>${closer.symbol}</button>
-      </div>`;
+      render(document.body, html`
+        <div class=sensor onmouseover=${detect} />
+        <div class=left style=${`margin-left:${-doors.status * 50}%`} />
+        <div class=right style=${`margin-right:${-doors.status * 50}%`} />
+        <progress value=${doors.status * 100} max=100 />
+        <div class=panel>
+          <button onclick=${pressOpener}>${opener.symbol}</button>
+          <button onclick=${pressCloser}>${closer.symbol}</button>
+        </div>
+      `);
     }
 
     // when DOM buttons are clicked, mechanic buttons are pressed
